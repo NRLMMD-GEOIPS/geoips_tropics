@@ -1,0 +1,84 @@
+# @ pyproject.toml specifies how to install your package, and ensures it is
+# @ installed as a valid GeoIPS plugin package.
+
+# @ Replace all instances of @ within this template with appropriate values for
+# @ your particular use case.
+# @ Once complete, remove all lines containing "@" from this file.
+
+[build-system]
+requires = ["setuptools>=61.2", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.setuptools.package-data]
+"*" = [
+    "plugins/*.yaml",
+    "plugins/*/*.yaml",
+    "plugins/*/*/*.yaml",
+    "plugins/*/*/*/*.yaml",
+    "plugins/*/*/*/*/*.yaml",
+    "plugins/*.txt",
+    "plugins/*/*.txt",
+    "plugins/*/*/*.txt",
+    "plugins/*/*/*/*.txt",
+    "plugins/*/*/*/*/*.txt",
+]
+
+[tool.setuptools.dynamic]
+entry-points = {file = ["entry-points.ini"]}
+
+[tool.setuptools_scm]
+"version_scheme" = "post-release"  # Use current version .postN vs incrementing
+"local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
+# @ Update with your package name, ie:
+# @ "write_to" = "@package@/_version.py"  # Write an actual file
+"write_to" = "my_package/_version.py"  # Write an actual file
+
+[project]
+# @ Update with your package name, ie:
+# @ name = "@package@"
+name = "my_package"
+authors = []
+description = "@package@ GeoIPS Plugin Package"
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = []
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version"]
+
+[project.entry-points."geoips.plugin_packages"]
+# @ Update with your package name, ie:
+# @ "@package@" = "@package@"
+"my_package" = "my_package"
+
+[project.entry-points."geoips.algorithms"]
+"pmw_89test" = "my_package.plugins.modules.algorithms.pmw_89test"
+
+# @ Add your own required entry points, based on your new functionality
+# [project.entry-points."geoips.algorithms"]
+# "@my_alg@" = "@package@.plugins.modules.algorithms.@my_alg@"
+# [project.entry-points."geoips.colormaps"]
+# "@my_cmap@" = "@package@.plugins.modules.colormaps.@my_cmap@"
+# [project.entry-points."geoips.interpolators"]
+# "@my_interp@" = "@package@.plugins.modules.interpolators.@my_interp@"
+# [project.entry-points."geoips.output_formatters"]
+# "@my_output_format_1@" = "@package@.plugins.modules.output_formatters.@my_output_format_1@"
+# "@my_output_format_2@" = "@package@.plugins.modules.output_formatters.@my_output_format_2@"
+# [project.entry-points."geoips.readers"]
+# "@my_reader@" = "@package@.plugins.modules.readers.@myreader@"
+# [project.entry-points."geoips.trackfile_parsers"]
+# "@my_parser@" = "@package@.plugins.modules.trackfile_parsers.@my_parser@"
+# [project.entry-points."geoips.filename_formatters"]
+# "@my_fname@" = "@package@.plugins.modules.filename_formatters.@my_fname@"
+# [project.entry-points."geoips.title_formatters"]
+# "@my_title@" = "@package@.plugins.modules.title_formatters.@my_title@"
+# [project.entry-points."geoips.coverage_checkers"]
+# "@my_covg@" = "@package@.plugins.modules.coverage_checkers.@my_covg@"

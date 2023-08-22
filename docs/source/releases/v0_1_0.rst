@@ -1,0 +1,81 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 0.1.0 (YYYY-MM-DD)
+**************************
+
+* @ Update date above in Version header
+* @ Update version number above to desired version number,
+  rename release note file to match
+
+  * @ ie, Version 0.1.0 -> docs/source/releases/v0_1_0.rst
+  * @ Update docs/source/releases/index.rst with appropriate version number
+* @ Update all portions of this release note identified with "@"
+* @ Remove all lines containing "@"
+* @ In this section, you can include a brief bulleted list of updates.
+
+* Initial commit of @new functionality@
+
+Major New Functionality
+=======================
+
+Add standard top level and installation files
+---------------------------------------------
+
+Standard README, release notes for initial release, and pyproject.toml
+installation specifications.
+
+::
+
+    new file: README.md
+    new file: docs/source/releases/v0_1_0.rst
+    new file: pyproject.toml
+
+Add @reader functionality 1@
+----------------------------
+
+* @functionality 1 description
+
+::
+  @package@/interface_modules/readers/@my_reader@**: @Info on reader
+
+Add @module functionality 2@
+----------------------------
+
+* @functionality 2 description
+
+::
+
+  @package@/interface_modules/@module_type@/@my_module@**: @Info on module
+
+Testing Updates
+===============
+
+Add standard test scripts
+-------------------------
+
+Include:
+
+* complete test script for full package integration tests.
+* Direct single source test calls.
+* Complete functionality integration test.
+* YAML procflow config to produce all available products.
+
+  * @product1 test description@
+  * @product2 test description@
+
+::
+
+    new file: tests/test_all.sh
+    new file: @tests/scripts/@mydatatype@.tc.@product@.imagery_clean.sh@
+    new file: tests/scripts/test_config.sh
+    new file: tests/scripts/test_config.yaml

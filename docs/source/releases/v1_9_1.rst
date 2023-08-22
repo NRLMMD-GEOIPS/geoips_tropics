@@ -1,0 +1,127 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.9.1 (2023-04-12)
+**************************
+
+* Add quality controls to TROPICS L1B data.
+* Update code formatting for geoips_tropics files
+* Add Incident-Angle plots for all bands
+
+Enhancements
+============
+
+Add incident angle plots for all bands
+--------------------------------------
+
+*From GEOIPS#16: 2023-04-12, add incident angle plots*
+
+* Add BandN-Incident-Angle products to tms.yaml product_inputs
+* Add generalized test script that can be used for all products
+* Add BandN-Incident-Angle calls to test_all.sh
+
+::
+
+  modified:   geoips_tropics/yaml_configs/product_inputs/tms.yaml
+  new file:   tests/scripts/tropics.sh
+  modified:   tests/test_all.sh
+
+Add quality controls to TROPICS L1B data
+----------------------------------------
+
+*From GEOIPS#6: 2023-04-03, Add quality cotrols to TROPICS L1B data*
+
+QC are applied to TROPICS L1B data to eliminate bad data, bad geolocations,
+unknown landsea, satellite active maneuver and large sensor zenith angles.
+
+Initial test of sensor zenith angle 65 degree cutoff (This cutoff will be revisited
+later as more TC cases are analyzed.)
+
+Adjustments on consistences of channel name and updated test filenames in test scripts.
+
+::
+
+  modified: geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py
+  modified: geoips_tropics/yaml_configs/product_inputs/tms.yaml
+  new file: geoips_tropics/yaml_configs/product_params/F205.yaml
+  modified: tests/scripts/tropics_115p95.sh
+  modified: tests/scripts/tropics_117p25.sh
+  modified: tests/scripts/tropics_184p41.sh
+  modified: tests/scripts/tropics_204p8.sh
+  modified: tests/scripts/tropics_91p66.sh
+  modified: geoips_tropics/CHANGELOG.rst
+  modified: geoips_tropics/README.md
+  deleted:  geoips_tropics/yaml_configs/product_params/F206.yaml
+
+Testing Updates
+===============
+
+Add code_checks.sh call to test_all.sh
+--------------------------------------
+
+Ensure code is properly formatted going forward.
+
+::
+
+  tests/test_all.sh
+
+Test Repo Updates
+=================
+
+Add Band1 and Band5 clean Incident-Angle outputs
+------------------------------------------------
+
+*From GEOIPS#16: 2023-04-12, add incident angle plots*
+
+Only include 2 sample incident angle plots, with clean image outputs.
+
+::
+
+  new file: tests/outputs/tropics.imagery_clean.Band1-Incident-Angle/20210926_051901_WP202021_tms_tropics-1_Band1-Incident-Angle_145kts_100p00_res1p0-cr300-clean.png
+  new file: tests/outputs/tropics.imagery_clean.Band5-Incident-Angle/20210926_051859_WP202021_tms_tropics-1_Band5-Incident-Angle_145kts_100p00_res1p0-cr300-clean.png
+
+Update test imagery for QC updates
+----------------------------------
+
+*From GEOIPS#6: 2023-04-03, re-run TROPICS test TC case with QC updates*
+
+need to do a pullof test_data/test_data_tropics to have the TROPICS validated v1 L1B
+data
+
+$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/test_all.sh to generate imagery products for
+this test TC case
+
+::
+
+  deleted:  tests/outputs/tropics.tc_clean.115p95/20210926_051901_WP202021_tms_tropics-1_115p95_145kts_100p00_1p0-clean.png
+  new file: tests/outputs/tropics.tc_clean.115p95/20210926_051901_WP202021_tms_tropics-1_115p95_145kts_93p32_1p0-clean.png
+  deleted:  tests/outputs/tropics.tc_clean.117p25/20210926_051901_WP202021_tms_tropics-1_117p25_145kts_100p00_1p0-clean.png
+  new file: tests/outputs/tropics.tc_clean.117p25/20210926_051901_WP202021_tms_tropics-1_117p25_145kts_93p32_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.184p41/20210926_051859_WP202021_tms_tropics-1_184p41_145kts_100p00_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.204p8/20210926_051859_WP202021_tms_tropics-1_204p8_145kts_100p00_1p0-clean.png
+  deleted:  tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_100p00_1p0-clean.png
+  new file: tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_93p24_1p0-clean.png
+
+Code Formatting and Style Updates
+=================================
+
+Applied black and flake8 defaults to code base
+----------------------------------------------
+
+Ensure code_checks.sh script passes for black, flake8, and bandit
+
+::
+
+  modified: geoips_tropics/__init__.py
+  modified: geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py
+  modified: geoips_tropics/interface_modules/user_colormaps/cmap_tropics.py
+  modified: geoips_tropics/interface_modules/user_colormaps/cmap_tropics91.py

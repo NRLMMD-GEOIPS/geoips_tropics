@@ -1,0 +1,195 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.10.2 (2023-06-10)
+***************************
+
+* Add v1_10_2.rst release note
+* Finalize plugin organization
+
+  * interface_modules -> plugins/modules
+  * yaml_configs -> plugins/yaml
+  * Rename subdirectories appropriately
+* Finalize interface updates
+
+  * Update interface names throughout code
+  * Finalize required attributes / formatting for all plugins
+  * Update all test scripts for new command line options
+* Finalize setup/install
+
+  * Update setuptools_scm to write to _version.py
+  * Replace setup.py with pyproject.toml
+  * Update to standard .gitignore
+  * Update to standard README.md
+* Finalize test_all.sh - check_code, and $GEOIPS checks
+
+*From issue GEOIPS#251: 2023-05-17, version update*
+
+Breaking Changes
+================
+
+Rename plugin directories
+-------------------------
+
+::
+
+  renamed: geoips_tropics/interface_modules/user_colormaps/cmap_tropics.py -> geoips_tropics/plugins/modules/colormappers/cmap_tropics.py
+  renamed: geoips_tropics/interface_modules/user_colormaps/cmap_tropics91.py -> geoips_tropics/plugins/modules/colormappers/cmap_tropics91.py
+  renamed: geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py -> geoips_tropics/plugins/modules/readers/tropics_L1B_netcdf.py
+  renamed: geoips_tropics/yaml_configs/product_params/F116.yaml -> geoips_tropics/plugins/yaml/product_defaults/F116.yaml
+  renamed: geoips_tropics/yaml_configs/product_params/F118.yaml -> geoips_tropics/plugins/yaml/product_defaults/F118.yaml
+  renamed: geoips_tropics/yaml_configs/product_params/F183.yaml -> geoips_tropics/plugins/yaml/product_defaults/F183.yaml
+  renamed: geoips_tropics/yaml_configs/product_params/F205.yaml -> geoips_tropics/plugins/yaml/product_defaults/F205.yaml
+  renamed: geoips_tropics/yaml_configs/product_params/F91.yaml -> geoips_tropics/plugins/yaml/product_defaults/F91.yaml
+  renamed: geoips_tropics/yaml_configs/product_inputs/tms.yaml -> geoips_tropics/plugins/yaml/products/tms.yaml
+
+Finalize required attributes / formatting for all plugins
+---------------------------------------------------------
+
+This includes all module-based and YAML-based plugins.
+
+Modified for black/code formatting as well.
+
+::
+
+  deleted: yaml/product_defaults/F116.yaml
+  deleted: yaml/product_defaults/F118.yaml
+  deleted: yaml/product_defaults/F183.yaml
+  deleted: yaml/product_defaults/F205.yaml
+  deleted: yaml/product_defaults/F91.yaml
+  modified: modules/colormappers/cmap_tropics.py
+  modified: modules/colormappers/cmap_tropics91.py
+  modified: modules/readers/tropics_L1B_netcdf.py
+  modified: yaml/products/tms.yaml
+
+Bug Fixes
+============
+
+Cleanup tropics L1B reader and bug fixes
+----------------------------------------
+
+There were some old codes incorrectly populated after the L1B QC TBs are done.
+These old codes accidently replaced the QCed L1B TBs for band 4 and 5.
+By removing these old codes fixes the issues at band 4 and 5 L1B TBs.
+
+
+*From issue GEOIPS#6: 2023-04-13, bug fixing to topics L1B reader*
+
+::
+    modified: CHANGELOG.rst
+    modified: /geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py
+    deleted:  /tests/outputs/tropics.tc_clean.204p8/20210926_051859_WP202021_tms_tropics-1_204p8_145kts_100p00_1p0-clean.png
+    deleted:  /tests/outputs/tropics.tc_clean.184p41/20210926_051859_WP202021_tms_tropics-1_184p41_145kts_100p00_1p0-clean.png
+    added:    /tests/outputs/tropics.tc_clean.204p8/20210926_051859_WP202021_tms_tropics-1_204p8_145kts_93p81_1p0-clean.png
+    added:    /tests/outputs/tropics.tc_clean.184p41/20210926_051859_WP202021_tms_tropics-1_184p41_145kts_93p81_1p0-clean.png
+
+Refactoring Updates
+===================
+
+Add __init__.py in all package directories
+------------------------------------------
+
+::
+
+  new file: geoips_tropics/plugins/__init__.py
+  new file: geoips_tropics/plugins/modules/__init__.py
+  new file: geoips_tropics/plugins/modules/colormappers/__init__.py
+  new file: geoips_tropics/plugins/modules/readers/__init__.py
+
+Update setuptools_scm to write to _version.py vs version.py
+-----------------------------------------------------------
+
+This is a more accepted and standard usage. Ensure we ignore the _version.py
+file, import from __init__.py, as well as adding to pyproject.toml.
+
+::
+
+  .gitignore
+  geoips_tropics/__init__.py
+  pyproject.toml
+
+Replace setup.py with pyproject.toml
+------------------------------------
+
+::
+
+  removed: setup.py
+  new: pyproject.toml
+
+Update to standard .gitignore
+-----------------------------
+
+Include all the standard .gitignore information from
+the github template repo.
+
+::
+
+  modified: .gitignore
+
+Update to standard README.md
+----------------------------
+
+Update to include standard README.md information.
+
+* #installation and #readme links
+* Explicit git clone command
+* Reminder to enable GeoIPS environment, vs explicitly sourcing $GEOIPS_CONFIG_FILE
+* Add check_system_requirements.sh commands for getting test data
+* Update GeoIPS version requirement
+
+::
+
+  modified: README.md
+
+Testing Updates
+===============
+
+Update test_all.sh to include $GEOIPS check and code_check test
+---------------------------------------------------------------
+
+Standardize test_all.sh to ensure $GEOIPS is cloned locally, and to
+call the "code_check" test script by default.
+
+::
+
+  tests/test_all.sh
+
+Update all test scripts for new command line options
+----------------------------------------------------
+
+output_format -> output_formatter
+filename_format -> filename_formatter
+boundaries_params -> feature_annotator
+gridlines_params -> gridline_annotator
+
+::
+
+        modified:   tests/scripts/tropics.sh
+        modified:   tests/scripts/tropics_115p95.sh
+        modified:   tests/scripts/tropics_117p25.sh
+        modified:   tests/scripts/tropics_184p41.sh
+        modified:   tests/scripts/tropics_204p8.sh
+        modified:   tests/scripts/tropics_91p66.sh
+
+Release Updates
+===============
+
+Add 1.10.0 release note
+-----------------------
+
+*From issue GEOIPS#251: 2023-05-17, version update*
+
+::
+
+    modified: CHANGELOG.rst
+    new file: docs/source/releases/v1_10_2.rst
+    modified: docs/source/releases/index.rst

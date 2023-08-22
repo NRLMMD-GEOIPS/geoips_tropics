@@ -1,0 +1,161 @@
+interface: products
+family: list
+name: geoips_tropics
+docstring: |
+  TROPICS products
+spec:
+  products:
+    - name: Band1-Incident-Angle
+      source_names: [tms]
+      docstring: |
+        Band1 TROPICS incident angle product.
+      product_defaults: incident-angle
+      spec:
+        variables: ["Band1:satellite_zenith_angle"]
+
+    - name: Band2-Incident-Angle
+      source_names: [tms]
+      docstring: |
+        Band2 TROPICS incident angle product.
+      product_defaults: incident-angle
+      spec:
+        variables: ["Band2:satellite_zenith_angle"]
+
+    - name: Band3-Incident-Angle
+      source_names: [tms]
+      docstring: |
+        Band3 TROPICS incident angle product.
+      product_defaults: incident-angle
+      spec:
+        variables: ["Band3:satellite_zenith_angle"]
+
+    - name: Band4-Incident-Angle
+      source_names: [tms]
+      docstring: |
+        Band4 TROPICS incident angle product.
+      product_defaults: incident-angle
+      spec:
+        variables: ["Band4:satellite_zenith_angle"]
+
+    - name: Band5-Incident-Angle
+      source_names: [tms]
+      docstring: |
+        Band5 TROPICS incident angle product.
+      product_defaults: incident-angle
+      spec:
+        variables: ["Band5:satellite_zenith_angle"]
+
+    - name: 115p95
+      source_names: [tms]
+      docstring: |
+        115.95 GHz TROPICS product.
+      product_defaults: 89H
+      spec:
+        variables: ["CHN3"] # Band2
+        mtif_type: pmw
+        algorithm:
+          plugin:
+            arguments:
+              output_data_range: [180, 280]
+        interpolator:
+          plugin:
+            arguments:
+              sigmaval: 30000
+        colormapper:
+          plugin:
+            name: cmap_tropics
+            arguments:
+              data_range: [180, 280]
+              cbar_label: "115.95GHz TB (K), Channel 3"
+
+    - name: 91p66
+      source_names: [tms]
+      docstring: |
+        91.66 GHz TROPICS product.
+      product_defaults: 89H
+      spec:
+        variables: ["CHN1"] # Band1
+        mtif_type: pmw
+        algorithm:
+          plugin:
+            arguments:
+              output_data_range: [200, 280]
+        interpolator:
+          plugin:
+            arguments:
+              sigmaval: 30000
+        colormapper:
+          plugin:
+            name: cmap_tropics91
+            arguments:
+              data_range: [200, 280]
+              cbar_label: "91.66 GHz TB (K), Channel 1"
+
+    - name: 117p25
+      source_names: [tms]
+      docstring: |
+        117.25 GHz TROPICS product.
+      product_defaults: 89H
+      spec:
+        variables: ["CHN5"] # Band3
+        mtif_type: pmw
+        algorithm:
+          plugin:
+            arguments:
+              output_data_range: [180, 280]
+        interpolator:
+          plugin:
+            arguments:
+              sigmaval: 30000
+        colormapper:
+          plugin:
+            name: cmap_tropics
+            arguments:
+              data_range: [180, 280]
+              cbar_label: "117.25GHz TB (K), Channel 5"
+
+    - name: 184p41
+      source_names: [tms]
+      docstring: |
+        184.41 GHz TROPICS product.
+      product_defaults: 89H
+      spec:
+        variables: ["CHN9"] # Band4
+        mtif_type: pmw
+        algorithm:
+          plugin:
+            arguments:
+              output_data_range: [180, 280]
+        interpolator:
+          plugin:
+            arguments:
+              sigmaval: 30000
+        colormapper:
+          plugin:
+            name: cmap_tropics
+            arguments:
+              data_range: [180, 280]
+              cbar_label: "184.41GHz TB (K), Channel 9"
+
+    - name: 204p8
+      source_names: [tms]
+      docstring: |
+        204.8 GHz TROPICS product.
+      product_defaults: 89H
+      spec:
+        variables: ["CHN12"] # Band5
+        mtif_type: pmw
+        algorithm:
+          plugin:
+            arguments:
+              output_data_range: [105, 305]
+        interpolator:
+          plugin:
+            arguments:
+              sigmaval: 30000
+        colormapper:
+          plugin:
+            name: pmw_89H
+            arguments:
+              data_range: [105, 305]
+              cbar_label: "204.8GHz TB (K), Channel 12"

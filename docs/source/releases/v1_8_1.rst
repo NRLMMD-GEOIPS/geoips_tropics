@@ -1,0 +1,98 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.8.1 (2023-03-14)
+**************************
+
+* TROPICS validated data reader update
+* black formatting updates
+* setuptools_scm versioning
+* CHANGELOG.md -> rst
+
+Regression Fixes
+================
+
+Fix errors with new validated TROPICS datasets
+----------------------------------------------
+
+*From issue GEOIPS#7: 2023-03-14, fix TROPICS reader errors*
+
+Update TROPICS reader to work with all new variable names.
+
+Note this includes adding an argument to xarray.open_dataset to NOT attempt
+to convert time units, as well as updating variable names.
+
+Also note we will likely eventually want to use the "time" variable rather than
+constructing it from the Year, Month, Day, Hour, Minute, Second variables.
+
+::
+
+    modified: geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py
+    
+
+Installation Updates
+====================
+
+Use setuptools_scm for versioning
+---------------------------------
+
+*From issue GEOIPS#192: 2023-03-14, Update version process*
+
+Replace VERSION file based versioning with setuptools_scm git tag based versioning.
+
+::
+
+    modified: setup.py
+    modified: geoips_tropics/__init__.py
+    removed: VERSION
+
+Code Formatting and Style Updates
+=================================
+
+Apply black defaults to Python files
+------------------------------------
+
+*From issue GEOIPS#126: 2023-03-14, apply black defaults*
+
+::
+
+    modified: geoips_tropics/interface_modules/readers/tropics_L1B_netcdf.py
+    modified: geoips_tropics/interface_modules/user_colormaps/cmap_tropics.py
+    modified: geoips_tropics/interface_modules/user_colormaps/cmap_tropics91.py
+    modified: setup.py
+
+Git Workflow Improvements
+=========================
+
+Add .github/release.yml for automated release notes
+---------------------------------------------------
+
+::
+
+    new: .github/release.yml
+
+Documentation Updates
+=====================
+
+Replace CHANGELOG.md with rst
+-----------------------------
+
+*From issue GEOIPS#172: 2023-03-14, replace CHANGELOG.md with CHANGELOG.rst*
+
+* Created new CHANGELOG.rst that follows new formatting requirements.
+* Moved CHANGELOG.md to docs/source/releases for now - may rearrange into
+  separate release notes in the future if desired.
+
+::
+
+    new file: CHANGELOG.rst
+    renamed: CHANGELOG.md -> docs/source/releases/CHANGELOG.md

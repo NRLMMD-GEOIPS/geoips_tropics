@@ -10,19 +10,19 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-Please see
-``$GEOIPS_PACKAGES_DIR/geoips/CHANGELOG_TEMPLATE.rst``
-for instructions on updating CHANGELOG appropriately
-with each PR.
+Version 1.11.6 (2023-10-24)
+***************************
 
-The release note that is currently, actively being updated in
-all geoips plugin repositories can be found in the file
-``$GEOIPS_PACKAGES_DIR/geoips/update_this_release_note``.
+* Replace timestamp with time in reader
 
-You can either:
+Bug fixes
+=========
 
-* update the appropriate release note in this repo directly.
-* or update this ``CHANGELOG.rst`` file with your release
-  notes, for simplicity (your notes will be moved to the
-  appropriate release note in ``docs/source/releases``
-  during the PR process)
+Replace timestamp with time in reader
+-------------------------------------
+
+Also perform related formatting updates.
+
+::
+
+  modified: plugins/modules/readers/tropics_L1B_netcdf.py

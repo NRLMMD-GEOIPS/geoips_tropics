@@ -21,16 +21,16 @@ family = "matplotlib"
 name = "cmap_tropics91"
 
 
-def call(data_range=[200, 280], cbar_label="TB (K)"):
+def call(data_range=[200, 305], cbar_label="TB (K)"):
     """Colormap for displaying TROPICS 91 GHz data.
 
     Parameters
     ----------
-    data_range : list of float, default [180, 280]
+    data_range : list of float, default [200, 305]
         Min and max value for colormap.
         Ensure the data range matches the range of the
         algorithm specified for use with this colormap
-        The TROPICS 91GHZ colormap MUST include 180 and 280
+        The TROPICS 91GHZ colormap MUST include 200 and 305
 
     Returns
     -------
@@ -50,9 +50,9 @@ def call(data_range=[200, 280], cbar_label="TB (K)"):
         (210, 220),
         (220, 230),
         (230, 240),
-        (240, 250),
-        (250, 270),
-        (270, max_tb),
+        (240, 254),
+        (254, 280),
+        (280, max_tb),
     ]
     transition_colors = [
         ("white", "#A4641A"),
@@ -68,7 +68,7 @@ def call(data_range=[200, 280], cbar_label="TB (K)"):
 
     # special selection of label
 
-    ticks = [200, 210, 220, 230, 240, 250, 260, 270, 280]
+    ticks = [200, 210, 220, 230, 240, 254, 280, 305]
 
     # selection of min and max values for colormap if needed
     min_tb = transition_vals[0][0]

@@ -219,14 +219,12 @@ def read_tropics(fname, metadata_only=False):
 
     xarray_band1["CHN1"] = xarray_band1["CHN1"].rename(name_dict)
     xarray_band1["qcIndex"] = xarray_band1["qcIndex"].rename(name_dict)
-    xarray_band1["timestamp"] = temp_time.rename(name_dict).drop_vars(
-        ("scans", "spots")
-    )
+    xarray_band1["time"] = temp_time.rename(name_dict).drop_vars(("scans", "spots"))
 
     # for Band-2
     xarray_band2 = xr.Dataset()
     # timestamp and NonOceanFlag is same for all bands
-    xarray_band2["timestamp"] = xarray_band1["timestamp"]
+    xarray_band2["time"] = xarray_band1["time"]
     xarray_band2["NonOceanFlag"] = xarray_band1["NonOceanFlag"]
     # Band 2 contains channels 2, 3, and 4
     TB2 = data["brightness_temperature"][1, :, :].data
@@ -271,7 +269,7 @@ def read_tropics(fname, metadata_only=False):
     # for Band-3
     xarray_band3 = xr.Dataset()
     # timestamp and NonOceanFlag is same for all bands
-    xarray_band3["timestamp"] = xarray_band1["timestamp"]
+    xarray_band3["time"] = xarray_band1["time"]
     xarray_band3["NonOceanFlag"] = xarray_band1["NonOceanFlag"]
     # Band 3 contains channels 5, 6, 7, 8
     TB5 = data["brightness_temperature"][4, :, :].data
@@ -323,7 +321,7 @@ def read_tropics(fname, metadata_only=False):
     # for Band-4
     xarray_band4 = xr.Dataset()
     # timestamp and NonOceanFlag is same for all bands
-    xarray_band4["timestamp"] = xarray_band1["timestamp"]
+    xarray_band4["time"] = xarray_band1["time"]
     xarray_band4["NonOceanFlag"] = xarray_band1["NonOceanFlag"]
     # Band 4 contains channels 9, 10, 11
     TB9 = data["brightness_temperature"][8, :, :].data
@@ -368,7 +366,7 @@ def read_tropics(fname, metadata_only=False):
     # for Band-5
     xarray_band5 = xr.Dataset()
     # timestamp and NonOceanFlag is same for all bands
-    xarray_band5["timestamp"] = xarray_band1["timestamp"]
+    xarray_band5["time"] = xarray_band1["time"]
     xarray_band5["NonOceanFlag"] = xarray_band1["NonOceanFlag"]
     # Band 5 contains only channel 12
     TB12 = data["brightness_temperature"][11, :, :].data
@@ -394,16 +392,16 @@ def read_tropics(fname, metadata_only=False):
     xarray_band5["CHN12"] = xarray_band5["CHN12"].rename(name_dict)
 
     # setup attribute
-    from geoips.xarray_utils.timestamp import (
-        get_max_from_xarray_timestamp,
-        get_min_from_xarray_timestamp,
+    from geoips.xarray_utils.time import (
+        get_max_from_xarray_time,
+        get_min_from_xarray_time,
     )
 
     # All bands have the same timestamps -
     # use band1 timestamp array to determine start and end datetime
     # for all datasets
-    start_dt = get_min_from_xarray_timestamp(xarray_band1, "timestamp")
-    end_dt = get_max_from_xarray_timestamp(xarray_band1, "timestamp")
+    start_dt = get_min_from_xarray_time(xarray_band1, "time")
+    end_dt = get_max_from_xarray_time(xarray_band1, "time")
 
     # SV_ID attribute is:
     # 1 for Pathfinder

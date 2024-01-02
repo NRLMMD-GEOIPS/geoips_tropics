@@ -79,7 +79,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [200, 280]
+              output_data_range: [200, 305]
         interpolator:
           plugin:
             arguments:
@@ -88,7 +88,7 @@ spec:
           plugin:
             name: cmap_tropics91
             arguments:
-              data_range: [200, 280]
+              data_range: [200, 305]
               cbar_label: "91.66 GHz TB (K), Channel 1"
 
     - name: 117p25

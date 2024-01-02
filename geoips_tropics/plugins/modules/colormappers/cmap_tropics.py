@@ -18,7 +18,7 @@ LOG = logging.getLogger(__name__)
 
 interface = "colormappers"
 family = "matplotlib"
-name = "cmap_tropics91"
+name = "cmap_tropics"
 
 
 def call(data_range=[180, 280], cbar_label="TB (K)"):
@@ -30,7 +30,7 @@ def call(data_range=[180, 280], cbar_label="TB (K)"):
         Min and max value for colormap.
         Ensure the data range matches the range of the
         algorithm specified for use with this colormap
-        The TROPICS 91GHZ colormap MUST include 180 and 280
+        The TROPICS > 100GHZ colormap MUST include 180 and 280
 
     Returns
     -------

@@ -1,0 +1,56 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.12.0 (2023-12-07)
+***************************
+
+* Update colormaps for 91GHz product to match 204.8GHz
+* Add release note for v1.12.0
+
+Enhancements
+============
+
+update 91GHz colormap at 91 GHz to match colors for TB>254K at 89-205 GHz
+-------------------------------------------------------------------------
+
+*From GEOIPS#27: 2023-11-21, update 91GHz colormap*
+
+updated colorbar at tropics 91 GHz to better display of TC structures
+
+::
+
+  modified: geoips_tropics/plugins/modules/colormappers/cmap_tropics.py
+  modified: geoips_tropics/plugins/modules/colormappers/cmap_tropics91.py
+  modified: geoips_tropics/plugins/yaml/products/tms.yaml
+
+Replaced existing imagery with updated imagery using new colorbars
+
+::
+
+  deleted: tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_93p24_1p0-clean.png
+  new file: tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_93p24_1p0-clean.png
+
+Release Process
+===============
+
+Add release note for v1.12.0
+----------------------------
+
+*From GEOIPS#408: 2023-11-25, release process updates*
+
+All updates until the next release (v1.12.0) will be included in
+this release note.
+
+::
+
+  modified: docs/source/releases/v1_12_0.rst
+  modified: docs/source/releases/index.rst

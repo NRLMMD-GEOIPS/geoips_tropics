@@ -42,7 +42,9 @@ fi
    # tropics_118.sh: run script for 118 GHz image product
    # tropics_116.sh: run script for 116 GHz image product
 
-. $GEOIPS/tests/utils/test_all_pre.sh tropics
+repopath=`dirname $0`/../
+pkgname=geoips_tropics
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh $pkgname
 
 echo ""
 # Note you must use the variable "call" in the for the loop
@@ -50,16 +52,17 @@ echo ""
 
 for call in \
 \
-    "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics.sh Band1-Incident-Angle" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics.sh Band5-Incident-Angle" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_115p95.sh" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_117p25.sh" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_184p41.sh" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_204p8.sh" \
-    "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_91p66.sh"
+  "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
+  "$GEOIPS_PACKAGES_DIR/geoips/docs/build_docs.sh $repopath $pkgname html_only" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics.sh Band1-Incident-Angle" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics.sh Band5-Incident-Angle" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_115p95.sh" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_117p25.sh" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_184p41.sh" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_204p8.sh" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_91p66.sh"
 do
-    . $GEOIPS/tests/utils/test_all_run.sh
+    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
-. $GEOIPS/tests/utils/test_all_post.sh
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh

@@ -103,7 +103,6 @@ def TB_qc(TB, lat, lon, qc_flag, ls_flag, satZenith):
         & (TB <= 350)
         & (am_status == 0)
         & (ls_flag < 2)
-        & (satZenith < 65)
     )
 
     qc_TB[index_good] = TB[index_good]
@@ -475,9 +474,9 @@ def read_tropics(fname, metadata_only=False):
     xarray_band5.attrs["orbit_number"] = data.attrs["OrbitNumber"]
     xarray_band5.attrs["source_file_names"] = data.attrs["Filename"]
     xarray_band5.attrs["sample_distance_km"] = 15  # km at Nadir
-    xarray_band5.attrs[
-        "interpolation_radius_of_influence"
-    ] = 45000  # 40km left gaps at edge of scan
+    xarray_band5.attrs["interpolation_radius_of_influence"] = (
+        45000  # 40km left gaps at edge of scan
+    )
 
     # close the data file
     data.close()

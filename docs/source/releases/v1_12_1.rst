@@ -1,0 +1,73 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.12.1 (2024-01-12)
+***************************
+
+* Improve TROPICS data visualization
+* Add basic documentation outline
+* Add release note for v1.12.1
+* Black formatting change to TROPICS reader
+
+Enhancements
+============
+
+Improve TROPICS data visualization
+----------------------------------
+
+*From GEOIPS#30: 2024-01-12, improve tropics data visualization*
+
+* Remove 65 degree satellite zenith cutoff
+* Update all products to use interp_grid linear.
+* Updated all test outputs
+
+::
+
+  modified: geoips_tropics/plugins/modules/readers/tropics_L1B_netcdf.py
+  modified: geoips_tropics/plugins/yaml/products/tms.yaml
+  modified: tests/outputs/tropics.tc_clean.115p95/20210926_051901_WP202021_tms_tropics-1_115p95_145kts_100p00_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.117p25/20210926_051901_WP202021_tms_tropics-1_117p25_145kts_100p00_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.184p41/20210926_051859_WP202021_tms_tropics-1_184p41_145kts_100p00_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.204p8/20210926_051859_WP202021_tms_tropics-1_204p8_145kts_100p00_1p0-clean.png
+  modified: tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_100p00_1p0-clean.png
+
+Documentation Updates
+=====================
+
+Add basic documentation outline
+-------------------------------
+
+* Add standard documentation files to allow build_docs.sh to complete.
+* Add build_docs.sh call to test_all.sh
+
+::
+
+  new file: docs/source/geoips_tropics_api/index.rst
+  new file: docs/source/introduction/index.rst
+  new file: docs/source/userguide/index.rst
+  modified: tests/test_all.sh
+
+Release Process
+===============
+
+Add release note for v1.12.1
+----------------------------
+
+*From GEOIPS#422: 2024-01-12, 1.12.1 release note*
+
+All updates until the next release (v1.12.1) will be included in
+this release note.
+
+::
+
+  modified: docs/source/releases/v1.12.1.rst
+  modified: docs/source/releases/index.rst

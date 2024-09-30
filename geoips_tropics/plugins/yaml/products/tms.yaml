@@ -56,7 +56,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [180, 280]
+              output_data_range: [100, 350]
         interpolator:
           plugin:
             name: interp_grid
@@ -80,7 +80,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [200, 305]
+              output_data_range: [100, 350]
         interpolator:
           plugin:
             name: interp_grid
@@ -104,7 +104,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [180, 280]
+              output_data_range: [100, 350]
         interpolator:
           plugin:
             name: interp_grid
@@ -128,7 +128,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [180, 280]
+              output_data_range: [100, 350]
         interpolator:
           plugin:
             name: interp_grid
@@ -152,7 +152,7 @@ spec:
         algorithm:
           plugin:
             arguments:
-              output_data_range: [105, 305]
+              output_data_range: [100, 350]
         interpolator:
           plugin:
             name: interp_grid

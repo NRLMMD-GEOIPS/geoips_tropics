@@ -45,6 +45,7 @@ changelog:
       labels:
         - "testing"
         - "code checks"
+        - "test repo updates"
     - title: Documentation Updates
       labels:
         - "documentation"
@@ -53,10 +54,7 @@ changelog:
         - "Version Release"
     - title: Developmental Updates
       labels:
-        - "Dev Update"
-    - title: Incoming Changes from GitHub.com
-      labels:
-        - "Open Source Incoming"
+        - "dev update"
     - title: Other Changes
       labels:
         - "*"

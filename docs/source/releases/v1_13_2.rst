@@ -1,0 +1,34 @@
+.. dropdown:: Distribution Statement
+
+ | # # # This source code is protected under the license referenced at
+ | # # # https://github.com/NRLMMD-GEOIPS.
+
+Version 1.13.2 (2024-07-16)
+***************************
+
+* Add release note for v1.13.2
+
+* Testing Updates
+
+  * Add a test script for edge of scan
+
+
+Testing Updates
+===============
+
+Add a test script for edge of scan
+----------------------------------
+
+::
+
+  new file: tests/scripts/tropics_117p25_edge.sh
+
+Release Process
+===============
+
+Add release note for v1.13.2
+----------------------------
+
+::
+
+  modified: docs/source/releases/v1.13.2.rst

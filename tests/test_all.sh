@@ -1,16 +1,7 @@
 #!/bin/bash
 
-# # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # #
-# # # Author:
-# # # Naval Research Laboratory, Marine Meteorology Division
-# # #
-# # # This program is free software: you can redistribute it and/or modify it under
-# # # the terms of the NRLMMD License included with this program. This program is
-# # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-# # # for more details. If you did not receive the license, for more information see:
-# # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+# # # This source code is protected under the license referenced at
+# # # https://github.com/NRLMMD-GEOIPS.
 
 # Do not rename this script or test directory - automated integration
 # tests look for the tests/test_all.sh script for complete testing.
@@ -58,11 +49,12 @@ for call in \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics.sh Band5-Incident-Angle" \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_115p95.sh" \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_117p25.sh" \
+  "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_117p25_edge.sh" \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_184p41.sh" \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_204p8.sh" \
   "$GEOIPS_PACKAGES_DIR/geoips_tropics/tests/scripts/tropics_91p66.sh"
 do
-    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
+  . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh

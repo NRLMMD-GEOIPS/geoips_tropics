@@ -54,7 +54,10 @@ changelog:
         - "Version Release"
     - title: Developmental Updates
       labels:
-        - "dev update"
+        - "Dev Update"
+    - title: Incoming Changes from GitHub.com
+      labels:
+        - "Open Source Incoming"
     - title: Other Changes
       labels:
         - "*"

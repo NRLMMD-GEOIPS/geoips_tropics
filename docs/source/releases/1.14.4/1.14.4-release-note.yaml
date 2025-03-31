@@ -5,6 +5,8 @@ documentation:
     and deploy docs.
 
     Additionally add any updated files from geoips_ci/sync
+
+    1.14.4 upload for 1.14.3 release.
   files:
     added:
     - docs/source/releases/latest/1.14.4-release-note.yaml

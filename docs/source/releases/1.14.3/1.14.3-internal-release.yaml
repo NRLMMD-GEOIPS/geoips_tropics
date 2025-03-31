@@ -1,0 +1,12 @@
+Release Process:
+- title: Add 1.14.3 release note
+  description: |
+    Currently tagged internal version 1.14.2.
+  files:
+    added:
+    - docs/source/releases/1.14.3/1.14.3-internal-release.yaml
+  related-issue:
+    internal: GEOIPS#715 - 1.14.3 updates*
+  date:
+    start: 2024-12-05
+    finish: 2024-12-05

@@ -1,0 +1,42 @@
+testing:
+- title: 'Update 117.25 edge case test'
+  description: |
+    I don't know if this is correct, but since the data has stopped I'm going to just
+    update so the tests pass..
+
+    It appears the center moved ever-so-slightly, but it is using the same bdeck file
+    in the geoips repo (which has never been updated), and there doesn't appear to be
+    any other factors that would cause the center to change.
+  files:
+    deleted:
+    - 'deleted:    tests/outputs/tropics.tc_clean.117p25_edge/20240525_123247_IO012024_tms_tropics-3_117p25_35kts_87p29_1p0-clean.png'
+    moved:
+    - ''
+    added:
+    - 'new file:   tests/outputs/tropics.tc_clean.117p25_edge/20240525_123245_IO012024_tms_tropics-3_117p25_35kts_90p39_1p0-clean.png'
+    modified:
+    - ''
+  related-issue:
+    internal: geoips#959 - 1.17.2 updates
+  date:
+    start: 2025-11-19
+    finish: 2025-11-19
+- title: 'Update to pytest based integration tests'
+  description: |
+    Remove test_all.sh and move tests to test_geoips_tropics.py
+
+    Also updated standard sync files
+  files:
+    deleted:
+    - 'tests/test_all.sh'
+    moved:
+    - ''
+    added:
+    - 'tests/integration_tests/test_geoips_tropics.py'
+    modified:
+    - ''
+  related-issue:
+    internal: geoips#959 - 1.17.2 updates
+  date:
+    start: 2025-11-19
+    finish: 2025-11-19

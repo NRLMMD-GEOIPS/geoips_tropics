@@ -88,9 +88,9 @@ spec:
               method: linear
         colormapper:
           plugin:
-            name: cmap_tropics91
+            name: pmw_89H
             arguments:
-              data_range: [200, 305]
+              data_range: [105, 305]
               cbar_label: "91.66 GHz TB (K), Channel 1"
 
     - name: 117p25

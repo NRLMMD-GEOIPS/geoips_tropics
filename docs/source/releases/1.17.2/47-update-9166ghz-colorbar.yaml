@@ -1,0 +1,20 @@
+bug fix:
+- title: 'Update 91.66GHz colorbar'
+  description: |
+    Update the 91.66GHz colorbar to match other 91GHz products (such as those from SSMIS)
+    Change colormap to pmw_89H and the data range to 105-305K.
+  files:
+    deleted:
+    - ''
+    moved:
+    - ''
+    added:
+    - ''
+    modified:
+    - 'geoips_tropics/plugins/yaml/products/tms.yaml'
+    - 'tests/outputs/tropics.tc_clean.91p66/20210926_051901_WP202021_tms_tropics-1_91p66_145kts_100p00_1p0-clean.png'
+  related-issue:
+    internal: geoips_tropics#47
+  date:
+    start: 2025-09-25
+    finish: 2025-09-25
